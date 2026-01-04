@@ -1,0 +1,49 @@
+<html>
+        <head><title>click button to download pdf</title></head>
+        <body>
+
+            <h1>MERGE PDFS</h1>
+            <form id="mergeForm" action="/pdf/merge" method="post" enctype="multipart/form-data">
+                <input id="fileInput" type="file" name="files" accept=".pdf" multiple required />
+                <ul id=""fileList""></ul>
+                <br><br>
+                <button type="submit">MERGE</button>
+            </form>
+
+            <script>
+            document.addEventListener("change", (event) => {
+            console.log("DOM fully loaded and parsed");
+            });
+            </script>
+
+            <script>
+            var selDiv = "";
+            document.addEventListener("DOMContentLoaded", init, false);
+
+            function init() {
+                document.querySelector('#fileInput').addEventListener('change', handleFileSelect, false);
+                fileList = document.querySelector("#fileList");
+            }
+
+            function handleFileSelect(e) {
+                if(!e.target.files) return;
+
+                fileList.innerHTML = "";
+
+                var files = e.target.files;
+                foreach
+                fileList.innerHTML = "";
+                filesArray.forEach((file, index) => {
+                    const li = document.createElement("li")
+                    li.textContent = file.name;
+                    li.dataset.index = index;
+                    fileList.appendChild(li);
+                });
+            }
+
+            </script>
+
+
+            
+        </body>
+    </html>

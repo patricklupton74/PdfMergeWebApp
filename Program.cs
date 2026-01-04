@@ -31,11 +31,18 @@ app.MapGet("/pdf", () =>
         <body>
 
             <h1>MERGE PDFS</h1>
-            <form action=""/pdf/merge"" method=""post"" enctype=""multipart/form-data"">
-                <input type=""file"" name=""files"" accept="".pdf"" multiple required />
+            <form id=""mergeForm"" action=""/pdf/merge"" method=""post"" enctype=""multipart/form-data"">
+                <input id=""fileInput"" type=""file"" name=""files"" accept="".pdf"" multiple required />
+                <ul id=""fileList""></ul>
                 <br><br>
                 <button type=""submit"">MERGE</button>
             </form>
+
+            <script>
+            fileInput.addEventListener(""change"", (event) => {
+            fileList.innerHTML = ""hello"";
+            });
+            </script>
             
         </body>
         </html>";
@@ -43,6 +50,54 @@ app.MapGet("/pdf", () =>
 })
 .WithName("GetPdfHtml")
 .WithOpenApi();
+
+/*
+var fileList = """";
+            document.addEventListener(""DOMContentLoaded"", init, false);
+
+            function init() {
+                document.querySelector('#fileInput').addEventListener('change', handleFileSelect, false);
+                fileList = document.querySelector(""#fileList"");
+            }
+
+            function handleFileSelect(e) {
+                if(!e.target.files) return;
+
+                fileList.innerHTML = """";
+
+                var files = e.target.files;
+                foreach
+                fileList.innerHTML = """""";
+                filesArray.forEach((file, index) => {
+                    const li = document.createElement(""li"")
+                    li.textContent = file.name;
+                    li.dataset.index = index;
+                    fileList.appendChild(li);
+                });
+            }
+
+<script>
+            const fileInput = document.getElementById(""fileInput"");
+            const fileList = document.getElementById(""fileList"");
+            let filesArray = [];
+
+            fileInput.addEventListener(""change"", (e) => {
+                filesArray = Array.form(e.target.files);
+                renderList();
+            });
+
+            function renderList() {
+                fileList.innerHTML = """";
+                filesArray.forEach((file, index) => {
+                    const li = document.createElement(""li"")
+                    li.textContent = file.name;
+                    li.dataset.index = index;
+                    fileList.appendChild(li);
+                });
+            }
+
+            </script>
+*/
 
 //merge endpoint, takes input from form, merges files and returns as download
 app.MapPost("/pdf/merge", async (HttpRequest request) =>
