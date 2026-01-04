@@ -1,95 +1,63 @@
 :root {
-    --primary: #4f46e5;
-    --primary-hover: #4338ca;
-    --bg: #000000;
-    --card-bg: #ffffff;
-    --text: #ffffff;
-    --border: #e2e8f0;
+    --bg: #0f172a;       /* Dark background */
+    --card: #0f172a;     /* Lighter box color */
+    --accent: #4600eb;   /* Violet highlight */
+    --text: #f8fafc;     /* White text */
 }
 
 body {
-    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
     background-color: var(--bg);
     color: var(--text);
+    font-family: sans-serif;
+    padding: 0px;
     display: flex;
-    justify-content: center;
-    padding: 40px 20px;
-    margin: 0;
+    justify-content: left;
 }
 
 .container {
-    background: var(--card-bg);
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 500px;
+    background: var(--card);
+    padding: 40px;
+    border-radius: 15px;
+    width: 400px;
+    scale: 110%;
 }
 
 h1 {
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
     text-align: center;
-    color: var(--primary);
+    color: var(--accent);
 }
 
-/* File Input Styling */
+/* Form elements */
 input[type="file"] {
     width: 100%;
-    padding: 10px;
     margin-bottom: 20px;
-    border: 2px dashed var(--border);
-    border-radius: 8px;
-    cursor: pointer;
 }
 
-/* Sortable List Styling */
 #fileList {
     list-style: none;
     padding: 0;
-    margin: 20px 0;
 }
 
 #fileList li {
-    background: var(--bg);
-    border: 1px solid var(--border);
-    padding: 12px 16px;
-    margin-bottom: 8px;
-    border-radius: 6px;
-    display: flex;
-    align-items: center;
+    background: #334155;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
     cursor: grab;
-    transition: transform 0.1s, box-shadow 0.1s;
 }
 
-/* Visual cue when dragging */
-#fileList li:active {
-    cursor: grabbing;
-}
-
-.sortable-ghost {
-    opacity: 0.4;
-    background-color: var(--primary) !important;
-}
-
-/* Button Styling */
+/* The Merge Button */
 button {
     width: 100%;
-    background-color: var(--primary);
+    background-color: var(--accent);
     color: white;
     border: none;
     padding: 12px;
-    font-size: 1rem;
-    font-weight: 600;
     border-radius: 8px;
+    font-weight: bold;
     cursor: pointer;
-    transition: background 0.2s;
 }
 
 button:hover {
-    background-color: var(--primary-hover);
-}
-
-button:active {
-    transform: scale(0.98);
+    background-color: #7c3aed;
 }
