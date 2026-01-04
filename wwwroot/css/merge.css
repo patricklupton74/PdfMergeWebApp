@@ -16,7 +16,7 @@ body {
 
 .container {
     background: var(--card);
-    padding: 40px;
+    padding: 0px;
     border-radius: 15px;
     width: 400px;
     scale: 110%;
