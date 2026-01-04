@@ -39,8 +39,19 @@ app.MapGet("/pdf", () =>
             </form>
 
             <script>
+            const fileInput = document.getElementById(""fileInput"");
+            const fileList = document.getElementById(""fileList"");
+            let filesArray = [];
+
             fileInput.addEventListener(""change"", (event) => {
-            fileList.innerHTML = ""hello"";
+            filesArray = Array.from(event.target.files);
+            fileList.innerHTML = """";
+                filesArray.forEach((file, index) => {
+                    const li = document.createElement(""li"");
+                    li.textContent = file.name;
+                    li.dataset.index = index;
+                    fileList.appendChild(li);
+                });
             });
             </script>
             
