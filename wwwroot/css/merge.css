@@ -1,15 +1,15 @@
 :root {
-    --bg: #0f172a;       /* Dark background */
-    --card: #0f172a;     /* Lighter box color */
-    --accent: #4600eb;   /* Violet highlight */
-    --text: #f8fafc;     /* White text */
+    --bg: #0d0b14;       /* Dark background */
+    --card: #0d0b14;     /* not in use */
+    --accent: #9d85ff;   /* Violet highlight */
+    --text: #e0ddef;     /* White text */
 }
 
 body {
     background-color: var(--bg);
     color: var(--text);
     font-family: sans-serif;
-    padding: 0px;
+    padding: 10px 25px;
     display: flex;
     justify-content: left;
 }
@@ -19,12 +19,12 @@ body {
     padding: 0px;
     border-radius: 15px;
     width: 400px;
-    scale: 110%;
+    scale: 100%;
 }
 
 h1 {
-    text-align: center;
-    color: var(--accent);
+    text-align: left;
+    color: var(--text);
 }
 
 /* Form elements */
@@ -48,7 +48,7 @@ input[type="file"] {
 
 /* The Merge Button */
 button {
-    width: 100%;
+    width: 20%;
     background-color: var(--accent);
     color: white;
     border: none;
