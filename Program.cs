@@ -24,9 +24,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 
-//for returning html of pdf download page
+//for returning html of merge page
 app.MapGet("/merge", (IHostEnvironment env) => {
-// Path.Combine is safer for cross-platform (Windows vs Linux)
     var filePath = Path.Combine(env.ContentRootPath, "wwwroot/html", "merge.html");
     
     if (!File.Exists(filePath))
@@ -173,7 +172,7 @@ var fileList = """";
             </script>
 */
 
-//merge endpoint, takes input from form, merges files and returns as download
+//merge (post) endpoint, takes input from form, merges files and returns as download
 app.MapPost("/merge", async (HttpRequest request) =>
 {
     //validation for pdf files only

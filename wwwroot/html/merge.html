@@ -20,7 +20,7 @@
                 const fileList = document.getElementById("fileList");
                 const mergeForm = document.getElementById("mergeForm");
                 let filesArray = [];
-                // 1. Handle File Selection
+                // handle file selection
                 fileInput.addEventListener("change", (event) => {
                     filesArray = Array.from(event.target.files);
                     renderList();
@@ -31,16 +31,16 @@
                     filesArray.forEach((file, index) => {
                         const li = document.createElement("li");
                         li.textContent = file.name;
-                        // Store reference to the actual file object
+                        // refernce to actual file object
                         li.fileReference = file; 
                         fileList.appendChild(li);
                     });
                 }
-                // 2. Initialize Sortable
+                // sortablejs
                 new Sortable(fileList, {
                     animation: 150,
                     onEnd: () => {
-                        // Re-sync filesArray based on the new DOM order
+                        // adjust filesArray based on the new DOM order
                         const newOrder = [];
                         fileList.querySelectorAll("li").forEach(li => {
                             newOrder.push(li.fileReference);
@@ -49,18 +49,19 @@
                     }
                 });
 
-                // 3. Handle Form Submission via Fetch
+                // handle form submission + post call
                 mergeForm.addEventListener("submit", async (e) => {
                     e.preventDefault();
                         
                     if (filesArray.length === 0) return;
 
                     const formData = new FormData();
-                    // Append files in the specific order of filesArray
+                    // append files in the specific order of filesArray
                     filesArray.forEach(file => {
                         formData.append("files", file);
                     });
 
+                    // endpoint call
                     try {
                         const response = await fetch("/merge", {
                             method: "POST",
@@ -68,7 +69,7 @@
                         });
                             
                         if (response.ok) {
-                            // Handle the downloaded merged PDF
+                            // handle the downloaded merged PDF
                             const blob = await response.blob();
                             const url = window.URL.createObjectURL(blob);
                             const a = document.createElement("a");
@@ -78,10 +79,10 @@
                             a.click();
                             a.remove();
                         } else {
-                            alert("Merge failed on server.");
+                            alert("merge failed on server.");
                         }
                     } catch (error) {
-                        console.error("Error:", error);
+                        console.error("error:", error);
                     }
                 });
                 </script>
